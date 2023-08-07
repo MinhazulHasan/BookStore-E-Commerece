@@ -34,7 +34,7 @@ namespace BulkyBook.DataAccess.Repository
             return query.FirstOrDefault();
         }
 
-        public void Remove(T entity)
+        public void Remove(T entity)     
         {
             dbSet.Remove(entity);
         }
