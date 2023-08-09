@@ -1,0 +1,78 @@
+﻿@model BulkyBook.Models.ViewModels.ProductVM
+@{
+    ViewData["Title"] = "Upsert Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Edit">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit CoverType</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <div class="mb-3">
+            <label asp-for="Product.Title"></label>
+            <input asp-for="Product.Title" type="text" class="form-control" />
+            <span asp-validation-for="Product.Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Product.Description"></label>
+            <textarea asp-for="Product.Description" type="text" class="form-control"></textarea>
+            <span asp-validation-for="Product.Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Product.ISBN"></label>
+            <input asp-for="Product.ISBN" type="text" class="form-control" />
+            <span asp-validation-for="Product.ISBN" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Product.Author"></label>
+            <input asp-for="Product.Author" type="text" class="form-control" />
+            <span asp-validation-for="Product.Author" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Product.ListPrice"></label>
+            <input asp-for="Product.ListPrice" type="text" class="form-control" />
+            <span asp-validation-for="Product.ListPrice" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Product.Price"></label>
+            <input asp-for="Product.Price" type="text" class="form-control" />
+            <span asp-validation-for="Product.Price" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Product.Price50"></label>
+            <input asp-for="Product.Price50" type="text" class="form-control" />
+            <span asp-validation-for="Product.Price50" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Product.Price100"></label>
+            <input asp-for="Product.Price100" type="text" class="form-control" />
+            <span asp-validation-for="Product.Price100" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Product.CategoryId"></label>
+            <select asp-for="Product.CategoryId" asp-items="@Model.CategoryList" class="form-select">
+                <option disabled selected>Please select a category</option>
+            </select>
+            <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Product.CoverTypeId"></label>
+            <select asp-for="Product.CoverTypeId" asp-items="@Model.CoverTypeList" class="form-select">
+                <option disabled selected>Please select a cover type</option>
+            </select>
+            <span asp-validation-for="Product.CoverTypeId" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 150px;">Update</button>
+        <a asp-controller="CoverType" asp-action="Index" class="btn btn-secondary" style="width: 150px;">Back to List</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <patrial name="_ValidationScriptsPartial" />
+    }
+}
